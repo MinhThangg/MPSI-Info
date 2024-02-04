@@ -4,7 +4,7 @@ let t= [|1 ; 3; 5; 7; 9; 11;|] in
   t.(0)<-t.(1);
   t.(1)<-a;
   t;;*)
-  
+(*  
 let string_to_tableau s =
   let t = Array.make (String.length s) ' ' in
   for i=0 to String.length s - 1 do
@@ -14,6 +14,19 @@ let string_to_tableau s =
       t.(i)<- s.[i]
     done;
   t;;
+*)
+
+
+let string_to_tableau s =
+  let string_of_char c = String.make 1 c in
+  let t = ref "" in
+  for i=0 to String.length s - 1 do
+    if i mod 2 = 0 then
+      t:=!t^" "
+    else 
+      t:=!t^string_of_char s.[i]
+  done;
+  !t;;
 
 let str = "Salut à tous!";;
 let tab = string_to_tableau str;;
