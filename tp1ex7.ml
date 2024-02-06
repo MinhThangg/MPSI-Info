@@ -15,7 +15,7 @@ let string_to_tableau s =
     done;
   t;;
 *)
-
+(*
 
 let string_to_tableau s =
   let string_of_char c = String.make 1 c in
@@ -27,9 +27,18 @@ let string_to_tableau s =
       t:=!t^string_of_char s.[i]
   done;
   !t;;
+*)
 
-let str = "Salut à tous!";;
-let tab = string_to_tableau str;;
+
+let fctn s =
+  let blank_if_even i c = 
+    if i mod 2 = 0 then ' ' else c
+  in
+  String.mapi blank_if_even s;;
+
+
+let str = "Salut a tous!";;
+let out = fctn str;;
 
 let tab1 = 
   let t = Array.make 100 1 in
