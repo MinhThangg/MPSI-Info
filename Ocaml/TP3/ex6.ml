@@ -3,17 +3,17 @@ exception Pile_pleine;;
 exception Pile_vide;;
 exception OhMince;;
 
-let creer_pile n = Array.make (n+1) 0;;
+let creer_pile n = Array.make (n+2) 0;;
 
 let est_vide f = f.(0) = 0;;
-let est_pleine f = f.(0) = (Array.length f - 1);;
+let est_pleine f = f.(0) = (Array.length f - 2);;
 
 let empiler e p = 
-    p.(0)<-p.(0)+1;p.(((p.(0)-1) mod (Array.length p-1))+1)<-e;;
+    p.(0)<-p.(0)+1;p.(((p.(0)-2) mod (Array.length p-2))+2)<-e;;
 
 let depiler p =
     p.(0)<-p.(0)-1;
-    p.(((p.(0)) mod (Array.length p-1))+1);;
+    p.(((p.(0))-1 mod (Array.length p-2))+2);;
 
 let p = creer_pile 3;;
 
